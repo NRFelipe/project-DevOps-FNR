@@ -1,0 +1,18 @@
+---
+- name: Configurar servidor EC2
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Atualizar pacotes
+      apt:
+        update_cache: yes
+        upgrade: dist
+
+    - name: Instalar pacotes essenciais
+      apt:
+        name:
+          - htop
+          - git
+          - curl
+        state: present
