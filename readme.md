@@ -34,13 +34,27 @@ Prometheus & Grafana – Observabilidade e métricas (ou Datadog como alternativ
 ```
 devops-k8s-observability/
 ├── .github/workflows/
-│ └── ci-cd.yml # Pipeline CI/CD
-├── terraform/ # Infraestrutura como Código
-├── ansible/ # Playbooks para configuração
-├── app/ # Aplicação Dockerizada
-├── k8s/ # Manifests/Helm Charts
-├── monitoring/ # Prometheus & Grafana configs
-├── diagrams/ # Diagramas e screenshots
+│   └── ci-cd.yml          # Pipeline CI/CD para build e push da imagem Docker
+├── terraform/
+│   ├── main.tf            # Definição da infraestrutura (ex: EC2, cluster K8s)
+│   ├── variables.tf       # Variáveis de ambiente do Terraform
+│   └── outputs.tf         # Saídas (IP público, etc.)
+├── ansible/
+│   ├── playbook.yml       # Playbook para instalar Docker/K8s/Monitoring
+│   └── inventory.ini      # Inventário dos servidores/VMs
+├── app/
+│   ├── Dockerfile         # Dockerfile da aplicação Flask
+│   ├── requirements.txt   # Dependências da aplicação
+│   └── src/app.py         # Código da aplicação web
+├── k8s/
+│   ├── app-deployment.yaml # Deployment da aplicação no Kubernetes
+│   ├── app-service.yaml    # Service para expor a aplicação
+│   └── ingress.yaml        # Ingress Controller
+├── monitoring/
+│   ├── grafana-values.yaml    # Configurações do Grafana (Helm)
+│   └── prometheus-values.yaml # Configurações do Prometheus (Helm)
+├── diagrams/
+│   └── architecture.png    # Diagramas e screenshots para documentação
 └── README.md
 ```
 
