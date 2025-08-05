@@ -40,20 +40,34 @@ devops-k8s-observability/
  ├─ diagrams/               # Diagramas e screenshots
  └─ README.md
 
-🚀 Pipeline do Projeto
-Terraform provisiona a infraestrutura em nuvem (AWS ou Azure)
+## 🚀 Projeto Pipeline de DevOps
 
-Ansible configura servidores ou prepara o cluster Kubernetes
+### 1. Provisionamento de Infraestrutura
+- **Terraform**: Automatiza a criação de infraestrutura na nuvem (AWS ou Azure).
 
-Docker builda a imagem da aplicação
+### 2. Configuração de Servidores
+- **Ansible**: Configura servidores e prepara o cluster Kubernetes.
 
-GitHub Actions (CI/CD):
+### 3. Containerização de Aplicativos
+- **Docker**
+  - Construção e armazenamento da imagem da aplicação.
 
-Build e push da imagem Docker
+### 4. Orquestração e Implantação
+- **Kubernetes (K8s)**
+  - Utiliza manifests ou Helm Charts para deploy automático no cluster.
 
-Deploy automático no cluster Kubernetes
+### 5. Integração e Entrega Contínua
+- **GitHub Actions (CI/CD)**
+  - Pipeline para build e push da imagem Docker.
+  - Deploy automático no Kubernetes.
 
-Prometheus + Grafana monitoram métricas de pods e nodes
+### 6. Monitoramento e Observabilidade
+- **Prometheus & Grafana**
+  - Monitoramento de métricas de pods e nós do cluster.
+  - **(Alternativa: Datadog)**
+
+### 7. Documentação e Demonstração
+- Adicione capturas de tela e GIFs para demonstrar o pipeline em ação.
 
 📸 Demonstração
 CI/CD rodando no GitHub Actions
