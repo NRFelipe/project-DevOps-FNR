@@ -31,6 +31,7 @@ Prometheus & Grafana – Observabilidade e métricas (ou Datadog como alternativ
 
 📂 Estrutura do Projeto
 
+```
 devops-k8s-observability/
 ├── .github/workflows/
 │ └── ci-cd.yml # Pipeline CI/CD
@@ -41,6 +42,7 @@ devops-k8s-observability/
 ├── monitoring/ # Prometheus & Grafana configs
 ├── diagrams/ # Diagramas e screenshots
 └── README.md
+```
 
 ## 🚀 Projeto Pipeline de DevOps
 
