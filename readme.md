@@ -1,5 +1,6 @@
-DevOps K8s Observability Project
-Infraestrutura como Código, Deploy Automatizado e Observabilidade com Kubernetes.
+# DevOps K8s Observability Project
+
+## Infraestrutura como Código, Deploy Automatizado e Observabilidade com Kubernetes.
 Este projeto demonstra um pipeline completo de DevOps, incluindo Terraform, Ansible, Docker, Kubernetes, GitHub Actions (CI/CD) e monitoramento com Prometheus + Grafana.
 
 📌 Objetivos do Projeto
@@ -29,6 +30,7 @@ GitHub Actions – CI/CD e deploy automatizado
 Prometheus & Grafana – Observabilidade e métricas (ou Datadog como alternativa)
 
 📂 Estrutura do Projeto
+
 devops-k8s-observability/
  ├─ .github/workflows/
  │   └─ ci-cd.yml           # Pipeline CI/CD
