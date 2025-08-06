@@ -1,111 +1,94 @@
-# DevOps K8s Observability Project
 
-## Infraestrutura como Código, Deploy Automatizado e Observabilidade com Kubernetes.
-Este projeto demonstra um pipeline completo de DevOps, incluindo Terraform, Ansible, Docker, Kubernetes, GitHub Actions (CI/CD) e monitoramento com Prometheus + Grafana.
+# 🚀 Projeto DevOps Kubernetes Observability
 
-📌 Objetivos do Projeto
-Criar uma infraestrutura automatizada com Terraform e Ansible
+Este projeto faz parte do meu portfólio em **DevOps e Cloud**, demonstrando habilidades em **provisionamento, automação, deploy em Kubernetes e monitoramento com Prometheus e Grafana**.
 
-Deployar uma aplicação containerizada em Kubernetes
-
-Configurar um pipeline de CI/CD com GitHub Actions
-
-Implementar monitoramento e observabilidade com Prometheus e Grafana
-
-Documentar o projeto para servir como portfólio DevOps
-
-🛠️ Tecnologias Utilizadas
-Warp – Terminal moderno para visualizações e automação
-
-Terraform – Infraestrutura como Código (IaC)
-
-Ansible – Automação e configuração de servidores
-
-Docker – Containerização da aplicação
-
-Kubernetes (K8s) – Orquestração de containers
-
-GitHub Actions – CI/CD e deploy automatizado
-
-Prometheus & Grafana – Observabilidade e métricas (ou Datadog como alternativa)
-
-📂 Estrutura do Projeto
+## 📂 Estrutura do Projeto
 
 ```
 devops-k8s-observability/
 ├── .github/workflows/
-│   └── ci-cd.yml          # Pipeline CI/CD para build e push da imagem Docker
-├── terraform/
-│   ├── main.tf            # Definição da infraestrutura (ex: EC2, cluster K8s)
-│   ├── variables.tf       # Variáveis de ambiente do Terraform
-│   └── outputs.tf         # Saídas (IP público, etc.)
-├── ansible/
-│   ├── playbook.yml       # Playbook para instalar Docker/K8s/Monitoring
-│   └── inventory.ini      # Inventário dos servidores/VMs
-├── app/
-│   ├── Dockerfile         # Dockerfile da aplicação Flask
-│   ├── requirements.txt   # Dependências da aplicação
-│   └── src/app.py         # Código da aplicação web
-├── k8s/
-│   ├── app-deployment.yaml # Deployment da aplicação no Kubernetes
-│   ├── app-service.yaml    # Service para expor a aplicação
-│   └── ingress.yaml        # Ingress Controller
-├── monitoring/
-│   ├── grafana-values.yaml    # Configurações do Grafana (Helm)
-│   └── prometheus-values.yaml # Configurações do Prometheus (Helm)
-├── diagrams/
-│   └── architecture.png    # Diagramas e screenshots para documentação
-└── README.md
+│ └── ci-cd.yml # Pipeline CI/CD
+├── terraform/ # Infraestrutura como Código (AWS)
+├── ansible/ # Playbooks para configuração
+├── app/ # Aplicação Dockerizada
+├── k8s/ # Manifests e/ou Helm Charts
+├── monitoring/ # Prometheus & Grafana configs
+├── diagrams/ # Diagramas e screenshots
+└── README.md # Documentação do projeto
+```
+## 🛠️ Tecnologias Utilizadas
+
+- **Cloud:** AWS (EC2, EKS, VPC, Load Balancer)  
+- **Infraestrutura como Código:** Terraform  
+- **Configuração:** Ansible  
+- **Containers & Orquestração:** Docker e Kubernetes  
+- **CI/CD:** GitHub Actions  
+- **Monitoramento:** Prometheus + Grafana  
+
+---
+
+## ⚡ Como Executar
+
+1. **Provisionar Infraestrutura**
+  ```
+   bash
+   cd terraform
+   terraform init
+   terraform apply -auto-approve
 ```
 
-## 🚀 Projeto Pipeline de DevOps
+2.Configurar Servidores com Ansible 
+```
+cd ansible
+ansible-playbook setup.yml
+```
 
-### 1. Provisionamento de Infraestrutura
-- **Terraform**: Automatiza a criação de infraestrutura na nuvem (AWS ou Azure).
+3. Deplkoy do Kubernetes
+```
+kubectl apply -f k8s/
+```
 
-### 2. Configuração de Servidores
-- **Ansible**: Configura servidores e prepara o cluster Kubernetes.
+4. Acessar Grafana
+   Configurei o domínio local: grafana.felipe.local
 
-### 3. Containerização de Aplicativos
-- **Docker**
-  - Construção e armazenamento da imagem da aplicação.
+Usuário: admin
 
-### 4. Orquestração e Implantação
-- **Kubernetes (K8s)**
-  - Utiliza manifests ou Helm Charts para deploy automático no cluster.
-
-### 5. Integração e Entrega Contínua
-- **GitHub Actions (CI/CD)**
-  - Pipeline para build e push da imagem Docker.
-  - Deploy automático no Kubernetes.
-
-### 6. Monitoramento e Observabilidade
-- **Prometheus & Grafana**
-  - Monitoramento de métricas de pods e nós do cluster.
-  - **(Alternativa: Datadog)**
-
-### 7. Documentação e Demonstração
-- Adicione capturas de tela e GIFs para demonstrar o pipeline em ação.
-
-📸 Demonstração
-CI/CD rodando no GitHub Actions
-
-Pods rodando no Kubernetes via Warp
-
-Dashboard Grafana com métricas da aplicação
-
-(Adicione prints e GIFs aqui após a execução do projeto)
-
-⚡ Como Reproduzir
-
-Clone o repositório
-
-Configure suas credenciais da nuvem
-
-Execute o Terraform e Ansible para criar a infraestrutura
-
-Configure os secrets no GitHub para o CI/CD
-
-Faça o deploy e visualize as métricas no Grafana
+Senha: XXXXXXXXXX
 
 
+📊 Monitoramento e Observabilidade
+O cluster foi monitorado com Prometheus e Grafana, incluindo dashboards de:
+
+Uso de CPU e Memória por namespace
+
+Tráfego de rede e pacotes transmitidos/recebidos
+
+Health dos pods e workloads
+
+Prints dos Dashboards
+
+
+🧹 Finalizando e Evitando Custos
+Após concluir os testes, todos os recursos AWS foram destruídos para evitar custos:
+
+terraform destroy
+
+Exclusão manual de ENIs e VPC
+
+Verificação de EC2, EKS e Billing = 0 recursos ativos
+
+
+📌 Sobre o Projeto
+Este projeto foi desenvolvido para aprendizado e demonstração prática de:
+
+Provisionamento com IaC
+
+Automação com Ansible
+
+CI/CD e Deploy em Kubernetes
+
+Monitoramento em tempo real com Grafana
+
+📄 Licença
+Distribuído sob a licença MIT. Consulte LICENSE.md para mais informações.
