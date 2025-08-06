@@ -1,18 +1,28 @@
 ---
-- name: Configurar servidor EC2
+- name: Preparar instância Amazon Linux 2023
   hosts: all
   become: yes
 
   tasks:
-    - name: Atualizar pacotes
-      apt:
+    - name: Atualizar pacotes do sistema
+      dnf:
+        name: "*"
+        state: latest
         update_cache: yes
-        upgrade: dist
 
-    - name: Instalar pacotes essenciais
-      apt:
-        name:
-          - htop
-          - git
-          - curl
+    - name: Instalar Docker
+      dnf:
+        name: docker
         state: present
+
+    - name: Iniciar e habilitar Docker
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Adicionar ec2-user ao grupo docker
+      user:
+        name: ec2-user
+        groups: docker
+        append: yes

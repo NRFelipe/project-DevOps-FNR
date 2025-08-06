@@ -1,0 +1,31 @@
+---
+- name: Deploy app Docker na instância
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Puxar a imagem Docker mais recente
+      docker_image:
+        name: "{{ docker_image }}"
+        source: pull
+
+    - name: Parar container antigo (se existir)
+      docker_container:
+        name: app_container
+        state: stopped
+      ignore_errors: yes
+
+    - name: Remover container antigo (se existir)
+      docker_container:
+        name: app_container
+        state: absent
+      ignore_errors: yes
+
+    - name: Rodar container novo
+      docker_container:
+        name: app_container
+        image: "{{ docker_image }}"
+        state: started
+        restart_policy: always
+        ports:
+          - "80:80"  # ajuste para sua app
