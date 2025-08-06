@@ -1,42 +1,50 @@
 # Python
+__py# Logs
+*.log
+*.out
+*.err
+
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-.venv/
-env/
-venv/
 *.env
+.env
+.venv
+venv/
 
-# Logs
-*.log
+# Node (caso tenha front futuro)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Terraform
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+crash.log
 
 # Docker
 *.pid
 *.tar
+.dockerignore
 
-# Terraform
-*.tfstate
-*.tfstate.*
-crash.log
-.terraform/
-.terraform.lock.hcl
+# Kubernetes / Helm
+charts/*.tgz
 
-# Ansible
-*.retry
+# MacOS
+.DS_Store
 
-# Kubernetes
-*.crt
-*.key
-*.kubeconfig
-
-# VSCode / IDE
+# IDEs
 .vscode/
 .idea/
 
-# macOS
-.DS_Store
-
-# Node (caso use futuramente)
-node_modules/
+# Secrets
+*.pem
+*.key
+*.crt
+*.secret
+*.env
 
